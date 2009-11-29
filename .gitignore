@@ -1,1 +1,5 @@
 # add files to ignore for commit here.
+
+.settings/*
+.as3_classpath
+.project
