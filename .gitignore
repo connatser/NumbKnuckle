@@ -1,5 +1,17 @@
-# add files to ignore for commit here.
-
 .settings/*
-.as3_classpath
+bin-debug/*
+bin-release/*
+html-template/*
+bin/*
+doc/*
+obj/*
+ 
+*/.svn/*
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
 .project
+ 
+Thumbs.db
+.DS_Store
