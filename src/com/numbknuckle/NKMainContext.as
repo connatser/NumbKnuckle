@@ -1,5 +1,6 @@
 package com.numbknuckle {
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
+
 	import com.numbknuckle.view.NKStockListMediator;
 	import com.numbknuckle.view.NKStockListView;
 	import com.numbknuckle.model.NKStockListService;
@@ -14,9 +15,8 @@ package com.numbknuckle {
 	 * @author bconnatser
 	 */
 	public class NKMainContext extends Context {
-		
-		protected static const XML_CONFIG:XML =
-         <types>
+
+		protected static const XML_CONFIG : XML = <types>
             <type name='org.robotlegs.mvcs::Actor'>
                <field name='eventDispatcher'/>
             </type>
@@ -33,7 +33,7 @@ package com.numbknuckle {
                <field name='eventDispatcher'/>
             </type>
          </types>;
-         
+
 		public function NKMainContext(contextView : DisplayObjectContainer) {
 			injector = new SwiftSuspendersInjector(XML_CONFIG);
 			super(contextView);
