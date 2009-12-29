@@ -20,5 +20,9 @@ package com.numbknuckle.view {
 			generalText.border = true;
 			addChild(generalText);
 		}
+		
+		public function updateList(value:String) : void {
+			generalText.text = value;
+		}
 	}
 }

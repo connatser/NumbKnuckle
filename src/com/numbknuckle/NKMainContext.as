@@ -1,5 +1,5 @@
 package com.numbknuckle {
-	import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import com.numbknuckle.events.ServiceEvent;			import org.robotlegs.adapters.SwiftSuspendersInjector;
 
 	import com.numbknuckle.view.NKStockListMediator;
 	import com.numbknuckle.view.NKStockListView;
@@ -44,12 +44,13 @@ package com.numbknuckle {
 			//Commands
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, NKCreateStockListCommand, ContextEvent, true);
 			
-			//Dependency Injections
-			injector.mapSingleton(NKStockListService);			
-			
 			//Mediators
 			mediatorMap.mapView(NKStockListView, NKStockListMediator);
 			
+			//Dependency Injections
+			injector.mapSingleton(NKStockListService);	
+			commandMap.mapEvent(ServiceEvent.REQUEST_TEAMLIST, NKCreateStockListCommand);		
+						
 			//Start up
 			super.startup();
 		}
