@@ -15,7 +15,7 @@ package com.numbknuckle.controller {
 		override public function execute() : void {
 			var newStockText : NKTeamListView = new NKTeamListView();
 			contextView.addChild(newStockText);
-			
+
 			newTeamList.requestTeamList();
 		}
 	}

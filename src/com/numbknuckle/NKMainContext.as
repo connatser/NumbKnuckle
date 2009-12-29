@@ -1,5 +1,7 @@
 package com.numbknuckle {
-	import com.numbknuckle.events.ServiceEvent;			import org.robotlegs.adapters.SwiftSuspendersInjector;
+	import com.numbknuckle.events.ServiceEvent;	
+
+	import org.robotlegs.adapters.SwiftSuspendersInjector;
 
 	import com.numbknuckle.view.NKTeamListMediator;
 	import com.numbknuckle.view.NKTeamListView;
@@ -32,6 +34,7 @@ package com.numbknuckle {
                <field name='mediatorMap'/>
                <field name='eventDispatcher'/>
             </type>
+             
          </types>;
 
 		public function NKMainContext(contextView : DisplayObjectContainer) {
@@ -43,6 +46,7 @@ package com.numbknuckle {
 			
 			//Commands
 			commandMap.mapEvent(ContextEvent.STARTUP_COMPLETE, NKCreateStockListCommand, ContextEvent, true);
+			
 			
 			//Mediators
 			mediatorMap.mapView(NKTeamListView, NKTeamListMediator);
