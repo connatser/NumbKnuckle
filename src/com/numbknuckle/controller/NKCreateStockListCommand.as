@@ -1,6 +1,6 @@
 package com.numbknuckle.controller {
 	import com.numbknuckle.model.NKStockListService;	
-	import com.numbknuckle.view.NKStockListView;
+	import com.numbknuckle.view.NKTeamListView;
 
 	import org.robotlegs.mvcs.Command;
 
@@ -13,7 +13,7 @@ package com.numbknuckle.controller {
 		public var newTeamList : NKStockListService;
 
 		override public function execute() : void {
-			var newStockText : NKStockListView = new NKStockListView();
+			var newStockText : NKTeamListView = new NKTeamListView();
 			contextView.addChild(newStockText);
 			
 			newTeamList.requestTeamList();
