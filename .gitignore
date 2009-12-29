@@ -15,3 +15,11 @@ obj/*
  
 Thumbs.db
 .DS_Store
+
+*.flv
+*.mp3
+*.air
+*.svn
+*.doc
+*.m4a
+*.m4p

@@ -5,11 +5,11 @@ package com.numbknuckle.view {
 	/**
 	 * @author bconnatser
 	 */
-	public class NKStockListView extends MovieClip {
+	public class NKTeamListView extends MovieClip {
 		
 		protected var generalText:TextField;
 		
-		public function NKStockListView() {
+		public function NKTeamListView() {
 			build();
 		}
 		

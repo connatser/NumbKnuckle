@@ -5,12 +5,12 @@ package com.numbknuckle.view {
 	/**
 	 * @author bconnatser
 	 */
-	public class NKStockListMediator extends Mediator {
+	public class NKTeamListMediator extends Mediator {
 
 		[Inject]
-		public var view : NKStockListView;
+		public var view : NKTeamListView;
 
-		public function NKStockListMediator() {
+		public function NKTeamListMediator() {
 			//do nothing
 		}
 
