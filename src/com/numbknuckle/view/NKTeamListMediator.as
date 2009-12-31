@@ -1,5 +1,6 @@
 package com.numbknuckle.view {
 	import com.numbknuckle.events.ServiceEvent;	
+
 	import org.robotlegs.mvcs.Mediator;
 
 	/**
@@ -15,7 +16,7 @@ package com.numbknuckle.view {
 		}
 
 		override public function onRegister() : void {
-			eventMap.mapListener(eventDispatcher, ServiceEvent.TEAMREADY, onTeamReady);
+			eventMap.mapListener(eventDispatcher, ServiceEvent.TEAM_READY, onTeamReady);
 			dispatch(new ServiceEvent(ServiceEvent.REQUEST_TEAMLIST));
 		}
 

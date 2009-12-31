@@ -3,7 +3,7 @@ package com.numbknuckle {
 	import org.robotlegs.adapters.SwiftSuspendersInjector;
 	import com.numbknuckle.view.NKTeamListMediator;
 	import com.numbknuckle.view.NKTeamListView;
-	import com.numbknuckle.model.NKStockListService;
+	import com.numbknuckle.model.NKTeamListService;
 	import com.numbknuckle.controller.NKCreateTeamListServiceCommand;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.Context;
@@ -42,7 +42,7 @@ package com.numbknuckle {
 			mediatorMap.mapView(NKTeamListView, NKTeamListMediator);
 			
 			//Dependency Injections
-			injector.mapSingleton(NKStockListService);	
+			injector.mapSingleton(NKTeamListService);	
 			commandMap.mapEvent(ServiceEvent.REQUEST_TEAMLIST, NKCreateTeamListServiceCommand);		
 						
 			//Start up

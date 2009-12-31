@@ -1,5 +1,5 @@
 package com.numbknuckle.controller {
-	import com.numbknuckle.model.NKStockListService;	
+	import com.numbknuckle.model.NKTeamListService;	
 	import com.numbknuckle.view.NKTeamListView;
 
 	import org.robotlegs.mvcs.Command;
@@ -10,7 +10,7 @@ package com.numbknuckle.controller {
 	public class NKCreateStockListCommand extends Command {
 
 		[Inject]
-		public var newTeamList : NKStockListService;
+		public var newTeamList : NKTeamListService;
 
 		override public function execute() : void {
 			var newStockText : NKTeamListView = new NKTeamListView();
