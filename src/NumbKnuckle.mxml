@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
-			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:numbknuckle="com.numbknuckle.*">
-	<fx:Declarations>
-		<numbknuckle:NKContext contextView="{this}"/>
-	</fx:Declarations>
-</s:Application>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" xmlns:numbknuckle="com.numbknuckle.*">
+	
+	<numbknuckle:NKContext contextView="{this}"/>
+	
+</mx:Application>
