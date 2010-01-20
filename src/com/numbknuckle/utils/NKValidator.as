@@ -4,7 +4,7 @@ package com.numbknuckle.utils {
 	import flash.display.Sprite;
 
 	/**
-	 * @author connatser
+	 * @author connatser 
 	 */
 	public class NKValidator extends Sprite {
 

@@ -2,7 +2,7 @@ package com.numbknuckle.tests {
 	import com.numbknuckle.events.NKValidatorEvents;
 	import com.numbknuckle.utils.NKValidator;
 
-	import flash.display.MovieClip;
+	import flash.display.MovieClip; 
 
 	/**
 	 * @author connatser
