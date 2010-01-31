@@ -1,5 +1,33 @@
+<<<<<<< HEAD
 # add files to ignore for commit here.
 
 .settings/*
 .as3_classpath
 .project
+=======
+.settings/*
+bin-debug/*
+bin-release/*
+html-template/*
+bin/*
+doc/*
+obj/*
+ 
+*/.svn/*
+.as3_classpath
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
+.project
+ 
+Thumbs.db
+.DS_Store
+
+*.flv
+*.mp3
+*.air
+*.svn
+*.doc
+*.m4a
+*.m4p
