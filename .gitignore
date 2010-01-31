@@ -8,6 +8,21 @@ obj/*
  
 */.svn/*
 .as3_classpath
+<<<<<<< HEAD
+=======
+.project
+=======
+.settings/*
+bin-debug/*
+bin-release/*
+html-template/*
+bin/*
+doc/*
+obj/*
+ 
+*/.svn/*
+.as3_classpath
+>>>>>>> e44e903f042aa973ad90cc4d66498ee358e38b31
 .actionScriptProperties
 .flexProperties
 .flexLibProperties
@@ -23,4 +38,8 @@ Thumbs.db
 *.svn
 *.doc
 *.m4a
+<<<<<<< HEAD
 *.m4p
+=======
+*.m4p
+>>>>>>> e44e903f042aa973ad90cc4d66498ee358e38b31
