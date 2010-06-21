@@ -74,7 +74,7 @@
 	<target name="CompileAsdoc">
 		<echo message="Creating the ASDocs in the Document directory." /> 
 			<exec executable="${ASDOC_DIR}" failonerror="true">
-				<arg line='-doc-sources ${APP_CLASSES}' />
+				<arg line='-doc-sources ${SRC_DIR}' />
 				<arg line='-window-title "Playground"' />
 				<arg line='-output ${APP_DOCS}' />
 			</exec>
