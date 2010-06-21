@@ -1,0 +1,23 @@
+<project name="ftp_demo" default="init">
+
+	<property file="build.properties" />
+
+	<taskdef name="ftp" classname="org.apache.tools.ant.taskdefs.optional.net.FTP">
+	  <classpath>
+	    <pathelement location="${ANT_HOME}\lib\commons-net-ftp-2.0.jar"/>
+	  </classpath>
+	</taskdef>
+	
+	<target name="init" description="Begin main process for file transfer" depends="begin_download">
+		<echo message="The file transfer has completed." />
+	</target>
+	
+	<target name="begin_download" description="Perform file transfer.">
+		<echo message="The files are in the process of downloading." />
+		<ftp action="get" server="${SERVER_ADDRESS}" userid="${USER_ID}" password="${PASSWORD}" remotedir="${REMOTE_DIRECTORY}">
+			<fileset dir="${LOCAL_DIRECTORY}"/>
+		</ftp>
+		<echo message="The files have been downloaded." />
+	</target>
+		
+</project>

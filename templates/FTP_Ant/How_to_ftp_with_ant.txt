@@ -1,0 +1,80 @@
+How to FTP with Ant, a primer specifically using Terminal in OSX.
+By: Brian Connatser
+
+1. Download the latest build of Ant: http://ant.apache.org/bindownload.cgi
+2. Set the $ANT_PATH variable: Set this to your install of Ant/lib - This makes the JAR files available to all Ant users and builds.
+	- 	echo $ANT_HOME
+	-	export ANT_HOME=[PATH TO YOUR INSTALL/lib]
+3. Make sure you have the latest Java JDK: http://java.sun.com/javase/downloads/index.jsp
+4. Make sure the $JAVA_PATH is set: 
+	- 	echo $JAVA_HOME	
+	-	export JAVA_HOME=[PATH TO YOUR JDK INSTALL]
+5. Add the Ant build path the $PATH variable: 
+	-	export PATH=[PATH TO YOUR ANT INSTALL:$PATH] - the :$PATH appends your current path variable. 
+6. Test your Ant install by going to an empty directory and typing: ant
+	-	You should get something in return like: 
+			Buildfile: build.xml does not exist!
+			Build failed
+			- This is ok, we haven't created the build.xml file yet. But, this lets us know that ant is installed correctly
+			- and looking for a build.xml file.
+7. Ant does not come with the jars needed to ftp by default, so grab:
+	-	commons-net...jar: http://commons.apache.org/net/download_net.cgi (The latest at the time of this demo is commons-net-2.0.zip)
+	- 	jakarta-oro...jar: http://jakarta.apache.org/site/downloads/downloads_oro.cgi (Grab the Binary zip: 2.0.8.zip)
+	-	unzip both and place them in your ant install /lib directory. This will give all users of the system access to the jars.
+8. Create your build.xml and build.properties files. 
+9. Go to the directory containing your build files and run "ant".
+10. If all goes well your ftp will process.
+
+Sample build.xml:
+
+<project name="ftp_demo" default="deploy_all">
+
+	<property file="build.properties" />
+	
+	<!--
+		The taskdef needs to be set for Ant to know to use the ftp classes. 
+		Notice I am pointing to my $ANT_HOME path and directly to the commons-net-ftp-2.0.jar
+		*If using Eclipse, you don't need this taskdef, simple add the jar to the ANT_HOME class path.
+	-->
+	<taskdef name="ftp" classname="org.apache.tools.ant.taskdefs.optional.net.FTP">
+	  <classpath>
+	    <pathelement location="${ANT_HOME}\lib\commons-net-ftp-2.0.jar"/>
+	  </classpath>
+	</taskdef>
+	
+	<target name="init" description="Begin main process for file transfer" depends="begin_download">
+		<echo message="The file transfer has completed." />
+	</target>
+
+	
+	<target name="begin_download" description="Perform file transfer.">
+		<echo message="The files are in the process of downloading." />
+		<ftp action="get" server="${SERVER_ADDRESS}" userid="${USER_ID}" password="${PASSWORD}" remotedir="${REMOTE_DIRECTORY}">
+			<fileset dir="${LOCAL_DIRECTORY}"/>
+		</ftp>
+		<echo message="The files have been downloaded." />
+	</target>
+		
+</project>
+
+
+
+Sample build.properties:
+
+#Server information
+SERVER_ADDRESS=
+USER_ID=
+PASSWORD=
+REMOTE_DIRECTORY=
+LOCAL_DIRECTORY=
+
+Resources:
+Apache Ant: http://ant.apache.org/
+Latest build of Ant: http://ant.apache.org/bindownload.cgi
+Java JDK: http://java.sun.com/javase/downloads/index.jsp
+commons-net-2.0: jar: http://commons.apache.org/net/download_net.cgi (Uses the commons-net-ftp-2.0.jar)
+jakarta-oro-2.0.8.jar: http://jakarta.apache.org/site/downloads/downloads_oro.cgi
+
+
+
+
