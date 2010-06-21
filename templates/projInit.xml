@@ -1,0 +1,119 @@
+<project name="Flex Ant Tasks Build Script" default="init">
+
+	<!-- load previously defined configuration properties file -->
+	<property file="build.properties" />
+	<property name="APP_ROOT" value="DEPLOY"/>
+	
+	<!-- points to our flexTasks.jar we copied to the libs folder to distribute with the project -->
+	<taskdef resource="flexTasks.tasks" classpath="${basedir}/libs/flexTasks.jar" />
+
+	<!-- delete and create the DEPLOY dir again -->
+	<target name="init" depends="CreateBaseFiles, CopyCommonLibraries">
+		<echo message="All jobs ran successfully." />
+	</target>
+	
+	<!--Create the main directories for the project.-->
+	<target name="CreateDirectories">
+		<echo message="Creating the main project package directory." />
+			<mkdir dir="${PROJ_BASE}" />
+		<echo message="The Package directory has been created." />
+			
+		<echo message="Creating the Controller directory." />
+			<mkdir dir="${PROJ_CONTROLLER}" />
+		<echo message="The EController directory has been created." />
+		
+		<echo message="Creating the Events directory." />
+			<mkdir dir="${PROJ_EVENTS}" />
+		<echo message="The Events directory has been created." />
+			
+		<echo message="Creating the Model directory." />
+			<mkdir dir="${PROJ_MODEL}" />
+		<echo message="The Model directory has been created." />
+		
+		<echo message="Creating the Service directory." />
+			<mkdir dir="${PROJ_SERVICE}" />
+		<echo message="The Service directory has been created." />
+		
+		<echo message="Creating the Tests directory." />
+			<mkdir dir="${PROJ_TESTS}" />
+		<echo message="The Tests directory has been created." />
+		
+		<echo message="Creating the Utility directory." />
+			<mkdir dir="${PROJ_UTIL}" />
+		<echo message="The Utility directory has been created." />
+		
+		<echo message="Creating the View directory." />
+			<mkdir dir="${PROJ_VIEW}" />
+		<echo message="The View directory has been created." />
+	</target>
+	
+	
+	<!--Copy the template files over to the new project. These are common files such as custom events, utilities, etc.-->
+	<target name="CreateBaseFiles" depends="CreateDirectories">
+		<echo message="Copying project template files." />
+		
+		<copy todir="${PROJ_CONTROLLER}">
+			<fileset dir="${PROJ_CONTROLLER_BASE}">
+				<include name="**/*.as"/>
+				<include name="**/*.mxml"/>
+			</fileset>
+		</copy> 	
+	
+		<copy todir="${PROJ_EVENTS}">
+	  		<fileset dir="${PROJ_EVENTS_BASE}">
+	    		<include name="**/*.as"/>
+	    		<include name="**/*.mxml"/>
+	  		</fileset>
+		</copy> 
+		
+		<copy todir="${PROJ_MODEL}">
+	 		<fileset dir="${PROJ_MODEL_BASE}">
+		  		<include name="**/*.as"/>
+		  		<include name="**/*.mxml"/>
+	  		</fileset>
+		</copy> 
+
+		<copy todir="${PROJ_SERVICE}">
+			<fileset dir="${PROJ_SERVICE_BASE}">
+		 		<include name="**/*.as"/>
+			   	<include name="**/*.mxml"/>
+			</fileset>
+		</copy> 
+		
+		<copy todir="${PROJ_TESTS}">
+			<fileset dir="${PROJ_TESTS_BASE}">
+		  		<include name="**/*.as"/>
+		 		<include name="**/*.mxml"/>
+			</fileset>
+		</copy> 
+	
+		<copy todir="${PROJ_UTIL}">
+	  		<fileset dir="${PROJ_UTIL_BASE}">
+	    		<include name="**/*.as"/>
+	    		<include name="**/*.mxml"/>
+	  		</fileset>
+		</copy> 
+		
+		<copy todir="${PROJ_VIEW}">
+			<fileset dir="${PROJ_VIEW_BASE}">
+		 		<include name="**/*.as"/>
+		  		<include name="**/*.mxml"/>
+			</fileset>
+		</copy> 
+		
+		<echo message="The project template files have been copied." />
+	</target>
+	
+	<!--Copy the commonly used Libraries over to the new project -->
+	<target name="CopyCommonLibraries">
+		<echo message="Copying the common library files over to the new project." />
+		<copy todir="${LIBS_DIR}">
+			<fileset dir="${PROJ_COMMON_LIBS}">
+				<include name="**/*.swc"/>
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy> 	
+		<echo message="The common library files have been copied." />
+	</target>
+
+</project>
