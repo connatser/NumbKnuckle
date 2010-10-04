@@ -4,7 +4,7 @@ package {
 	import flash.display.MovieClip;
 
 	/**
-	 * @author connatser 
+	 * @author connatser
 	 */
 	public class NumbKnuckleMain extends MovieClip {
 
